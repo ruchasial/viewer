@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="google" content="notranslate">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>IFV</title>
+
+<link rel="stylesheet" href="iviewer.css" />
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="iviewer.js"></script>
+</head>
+
+<body tabindex="1" class="loadingInProgress">
+	<div id="outerContainer">
+		<div id="mainContainer" style="overflow-x: hidden">
+			<div class="toolbar">
+				<div id="toolbarContainer">
+					<div id="toolbarViewer">
+						<div class="outerCenter">
+							<div class="innerCenter" id="toolbarViewerMiddle">
+								<div class="splitToolbarButton">
+									<button id="zoomOut" class="toolbarButton zoomOut"
+										title="Zoom Out" onclick="zoomInOut(0.9)">
+										<span data-l10n-id="zoom_out_label">Zoom Out</span>
+									</button>
+									<div class="splitToolbarButtonSeparator"></div>
+									<button id="zoomIn" class="toolbarButton zoomIn"
+										title="Zoom In" onclick="zoomInOut(1.1);">
+										<span data-l10n-id="zoom_in_label">Zoom In</span>
+									</button>
+									<span id="scaleSelectContainer" class="dropdownToolbarButton">
+										<select id="scaleSelect" title="Zoom" tabindex="23">
+											<option id="pageAutoOption" onclick="zoom(1.5);">Automatic
+												Zoom</option>
+											<!-- <option id="pageActualOption" title="" value="page-actual" data-l10n-id="page_scale_actual">Actual Size</option>
+                      						<option id="pageFitOption" title="" value="page-fit" data-l10n-id="page_scale_fit">Fit Page</option>
+                      						<option id="pageWidthOption" title="" value="page-width" data-l10n-id="page_scale_width">Full Width</option>
+                      						<option id="customScaleOption" title="" value="custom"></option> -->
+											<option title="" value="0.5" onclick="zoom(0.5)">50%</option>
+											<option title="" value="0.75" onclick="zoom(0.75)">75%</option>
+											<option title="" value="1" onclick="zoom(1)">100%</option>
+											<option title="" value="1.25" onclick="zoom(1.25)">125%</option>
+											<option title="" value="1.5" onclick="zoom(1.5)">150%</option>
+											<option title="" value="2" onclick="zoom(2)">200%</option>
+											<option title="" value="3" onclick="zoom(3)">300%</option>
+											<option title="" value="4" onclick="zoom(4)">400%</option>
+									</select>
+									</span>
+
+									<button id="presentationMode"
+										class="toolbarButton presentationMode hiddenLargeView"
+										title="Switch to Presentation Mode" onclick="fullscreen();"
+										style="margin-left: 28%;">
+										<span>Presentation Mode</span>
+									</button>
+									<button id="openFile"
+										class="toolbarButton openFile hiddenLargeView"
+										title="Open File" onclick="openFile();">
+										<span>Open</span>
+									</button>
+									<button id="print" class="toolbarButton print hiddenMediumView"
+										title="Print" onclick="window.print();">
+										<span>Print</span>
+									</button>
+									<button id="pageRotateCw" class="toolbarButton rotateCw"
+										title="Rotate Clockwise" onclick="rotateImg(90);">
+										<span>Rotate Clockwise</span>
+									</button>
+									<button id="pageRotateCcw" class="toolbarButton rotateCcw"
+										title="Rotate Counterclockwise" onclick="rotateImg(-90);">
+										<span>Rotate Counterclockwise</span>
+									</button>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="viewerContainer">
+				<!-- style="display:flex;justify-content:center;align-items:center;overflow:auto; background-image: url("output/sample_gif.gif") center no-repeat;"> -->
+				<!-- <img id="Frame" class="center fit" onmousewheel="wheel" src="output/sample_jpg.jpg" onload="this.onload=null; this.src=getFilePath();"  > -->
+			</div>
+		</div>
+	</div>
+</body>
+</html>

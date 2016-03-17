@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import org.concord.viewer.JsonResponse;
 
 
 import javax.ws.rs.Consumes;
@@ -21,22 +22,25 @@ import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.concord.viewer.convert.ConvertHTML;
 import org.concord.viewer.convert.ConvertNone;
 import org.concord.viewer.convert.ConvertPDF;
+import org.concord.viewer.convert.ForCsv;
+import org.concord.viewer.convert.ForXls;
+import org.concord.viewer.convert.ForXlsx;
 import org.concord.viewer.typecheck.TypeCheck;
-
+/*
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
+import javax.servlet.ServletContext;*/
 @Path("/send")
 public class Getfile {
 	
-	
+	String type;
 	/*public static void e("current dir = " + dir);rror()
 	{
 		//error handling code
 	}*/
 	//file store on server
 	//public String resultFilePath =null;
-	private final String FOLDER_PATH = "/home/rucha/git/viewer/uploads/";
+	private final String FOLDER_PATH = "/home/rucha/git/viewer/src/main/webapp/uploads/";
 	@Path("/uploading")
 	@POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
@@ -44,6 +48,7 @@ public class Getfile {
 	
     public String uploadFile(@FormDataParam("upl") InputStream Inputfile, @FormDataParam("upl") FormDataContentDisposition fileDisposition) throws IOException, InterruptedException 
 	{
+		
 		/*final String dir = System.getProperty("user.dir");
 	    System.out.println("current directory"+dir);*/
         OutputStream outpuStream = null;
@@ -67,6 +72,7 @@ public class Getfile {
             }
             String convertedFilePath=call(new File(filePath),fileName);
             System.out.println("converted file path "+convertedFilePath);
+            //JsonResponse jsonresponse = new JsonResponse(type,convertedFilePath);
           
         return convertedFilePath;
     }
@@ -81,7 +87,7 @@ System.out.println(resultFilePath);
 	{
 		String inputPath=inputFile.getAbsolutePath();
 		String outputPath="";
-		String type;
+		
 		type = TypeCheck.check(inputFile);
 		
 		switch (type)
@@ -93,29 +99,51 @@ System.out.println(resultFilePath);
    	    case "application/vnd.ms-powerpoint":   //ppt
    	    case "application/vnd.openxmlformats-officedocument.presentationml.presentation":  //pptx
    	    	ConvertPDF c= new ConvertPDF();
-   	    	outputPath=c.convert(inputPath,fileName);
+   	    	String op1=c.convert(inputPath,fileName); 
+   	    	outputPath="/FrontViewer/viewer.html?file=.."+op1;
    	    	break;
-   	    	//xls, xlsx, csv,ods
+   	    	
+   	    //xls, xlsx, csv,ods
    	    case "text/csv": //csv
-   	    case "application/vnd.ms-excel": //xls
-   	    case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": //xlsx
-   	    case "application/vnd.oasis.opendocument.spreadsheet": //ods
-   	    	ConvertHTML h = new ConvertHTML();
-   	    	outputPath=h.convert(inputPath,fileName);
+   	    	ForCsv cv = new ForCsv();
+   	    	String op4=cv.convert(inputPath, fileName);
+   	    	outputPath = "/FrontViewer/iviewer.html?file=.."+op4 ;
    	    	break;
+   	    case "application/vnd.ms-excel": //xls
+   	    	ForXls xls = new ForXls();
+   	    	String op3=xls.convert(inputPath, "/home/rucha/git/viewer/src/main/webapp/converted/");
+   	    	outputPath = "/FrontViewer/iviewer.html?file=.."+op3;
+   	    	break;
+   	    case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": //xlsx
+   	    	ForXlsx xlsx = new ForXlsx();
+   	    	String op5=xlsx.convert(inputPath,"/home/rucha/git/viewer/src/main/webapp/converted/");
+   	    	outputPath="/FrontViewer/iviewer.html?file=.."+op5;
+   	    	break;
+   	    case "application/vnd.oasis.opendocument.spreadsheet": //ods
+   	    	//ConvertHTML h = new ConvertHTML();
+   	    	
+   	    	//String op1=h.convert(inputPath,fileName);
+   	    	//outputPath= op1 + "1";
+   	    	//outputPath=h.convert(inputPath, fileName);
+   	    	
+   	    break;
+   	    //website
    	    case "application/xhtml+xml": //xhtml
    	    case "text/html":  //html
    	    case "application/json":  //json
    	    case "text/plain":  //txt
    	    case "text/css":  //css
    	    case "application/xml": //xml
-		 //images
+   	    //images
    	    case "image/x-ms-bmp": //bmp
    	    case "image/jpeg":  //jpg
    	    case "image/png": //png
+   	    case "image/gif": //gif
 		 ConvertNone n =new ConvertNone();
-		 outputPath=n.convert(inputPath,fileName);
-		 break;
+		 String op2=n.convert(inputPath,fileName);
+	    	outputPath= "/FrontViewer/iviewer.html?file=../"+op2;
+		
+		break;
    	    default: 
    	    	//error();
 		}

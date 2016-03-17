@@ -9,7 +9,7 @@ $(function(){
         $(this).parent().find('input').click();
     });
 
-    
+
     // Initialize the jQuery File Upload plugin
     $('#upload').fileupload({
 
@@ -21,8 +21,12 @@ $(function(){
         add: function (e, data) {
         	
             var tpl = $('<li class="working"><input type="text" value="0" data-width="48" data-height="48"'+
-                ' data-fgColor="#0788a5" data-readOnly="1" data-bgColor="#3e4043" /><p></p><button id="buttonid'+parseInt(cnt)+'" disabled>View</button><span></span></li>');
+                ' data-fgColor="#0788a5" data-readOnly="1" data-bgColor="#3e4043" /><p></p><button id="buttonid'+parseInt(cnt)+'" disabled="true" >View</button><span></span></li>');
+           
             
+            
+		
+		
             // Append the file name and file size
             tpl.find('p').text(data.files[0].name).append('<i>' + formatFileSize(data.files[0].size) + '</i>');
                
@@ -44,13 +48,29 @@ $(function(){
                 });
 
             });
+         
+           // fileReader.readAsArrayBuffer(blob);
 
+          
+          /*  var control = document.getElementById("upfile");
+			
+			control.addEventListener("change", function(event) {
+			    // When the control has changed, there are new files
+			    var files = control.files;
+			    for (var i = 0; i < files.length; i++) {
+			      // console.log("Filename: " + files[i].name);
+			        alert("file uploaded Type#########  : " + files[i].type);
+			        //console.log("Size: " + files[i].size + " bytes");
+			    }
+			}, false);*/
+           
             // Automatically upload the file once it is added to the queue
             var jqXHR = data.submit();
             jqXHR.done(function (result, textStatus, jqXHR) {
-            	$('#buttonid'+(parseInt(cnt)-1)).removeAttr('disabled');
             	res[(parseInt(+cnt)-1)]=result;
-            	$('#buttonid'+(parseInt(cnt)-1)).attr('onclick','window.open("http://localhost:8080/viewer/' + res[(parseInt(cnt)-1)]+'");');
+            	//$('#buttonid'+(parseInt(cnt)-1)).prop();
+            	 $('#buttonid'+(parseInt(cnt)-1)).prop("disabled",false);
+            	$('#buttonid'+(parseInt(cnt)-1)).attr('onclick','window.open("http://localhost:8080/viewer' + res[(parseInt(cnt)-1)]+'");');
             	//alert("data is : "+(parseInt(cnt)-1) +"   "+ result);
             	
             	
