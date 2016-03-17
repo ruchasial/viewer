@@ -30,7 +30,7 @@ import javax.servlet.ServletContext;
 public class Getfile {
 	
 	
-	/*public static void error()
+	/*public static void e("current dir = " + dir);rror()
 	{
 		//error handling code
 	}*/
@@ -44,7 +44,8 @@ public class Getfile {
 	
     public String uploadFile(@FormDataParam("upl") InputStream Inputfile, @FormDataParam("upl") FormDataContentDisposition fileDisposition) throws IOException, InterruptedException 
 	{
-		
+		/*final String dir = System.getProperty("user.dir");
+	    System.out.println("current directory"+dir);*/
         OutputStream outpuStream = null;
         String fileName = fileDisposition.getFileName();
        System.out.println("File Name: " + fileName);

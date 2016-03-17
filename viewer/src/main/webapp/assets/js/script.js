@@ -21,7 +21,7 @@ $(function(){
         add: function (e, data) {
         	
             var tpl = $('<li class="working"><input type="text" value="0" data-width="48" data-height="48"'+
-                ' data-fgColor="#0788a5" data-readOnly="1" data-bgColor="#3e4043" /><p></p><button id="buttonid'+parseInt(cnt)+'"> View</button><span></span></li>');
+                ' data-fgColor="#0788a5" data-readOnly="1" data-bgColor="#3e4043" /><p></p><button id="buttonid'+parseInt(cnt)+'" disabled>View</button><span></span></li>');
             
             // Append the file name and file size
             tpl.find('p').text(data.files[0].name).append('<i>' + formatFileSize(data.files[0].size) + '</i>');
@@ -48,7 +48,8 @@ $(function(){
             // Automatically upload the file once it is added to the queue
             var jqXHR = data.submit();
             jqXHR.done(function (result, textStatus, jqXHR) {
-            	res[(parseInt(cnt)-1)]=result;
+            	$('#buttonid'+(parseInt(cnt)-1)).removeAttr('disabled');
+            	res[(parseInt(+cnt)-1)]=result;
             	$('#buttonid'+(parseInt(cnt)-1)).attr('onclick','window.open("http://localhost:8080/viewer/' + res[(parseInt(cnt)-1)]+'");');
             	//alert("data is : "+(parseInt(cnt)-1) +"   "+ result);
             	
