@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Viewer</title>
+
+		<!-- Google web fonts -->
+		<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+
+		<!-- The main CSS file -->
+		<link href="assets/css/style.css" rel="stylesheet" />
+			<!-- JavaScript Includes -->
+		 <script src="http://malsup.github.com/jquery.form.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="assets/js/jquery.knob.js"></script>
+
+		<!-- jQuery File Upload Dependencies -->
+		<script src="assets/js/jquery.ui.widget.js"></script>
+		<script src="assets/js/jquery.iframe-transport.js"></script>
+		<script src="assets/js/jquery.fileupload.js"></script>
+		
+		<!-- jQuery File Viewing Dependencies-->
+		<script src="assets/js/jquery.fileview.js"></script>
+		
+		<!-- Our main JS file -->
+		<script src="assets/js/script.js"></script>
+		 <script> 
+		<!--function onsubmit(e){
+					e.preventdefault();
+			 		var path= "webapi/send/uploading";
+			        dataString = $("#upload").serialize();
+			     
+			        $.ajax({
+			        type: "POST",
+			        url:path ,
+			        data: dataString,
+			        dataType:"text"
+			        success: function(data) {
+		            	alert("data "+data);
+			            if(data!= 'undefined'){
+			            	alert("data is"+data);
+			                $("#itvs").html("<h1>success</h1>");
+			            } else {
+							alert("no data ");
+			            	$("#itvs").html("<h1>failure</h1>");
+			          
+			        }
+			           
+			        });         
+			         
+			    });
+		}-->
+		
+
+    </script> 
+	</head>
+
+	
+<body>
+
+		<form id="upload" method="post" action="webapi/send/uploading" enctype="multipart/form-data"> 
+	
+			<div id="drop">
+				Drop Here
+
+				<a>Browse</a>
+				<input type="file" id="upfile" name="upl"  multiple/>
+				<!-- <button type="submit" >View</button>  -->
+			
+				
+			</div>
+		
+			
+
+			
+			</form>
+		<div id="itvs">
+			<ul>
+				<!-- The uploaded files will be shown here -->
+			</ul>
+		
+			
+        </div>
+		 
+
+
+	</body>
+</html>

@@ -8,21 +8,25 @@ import java.io.OutputStream;
 
 
 import javax.ws.rs.Consumes;
-
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
-import org.apache.commons.vfs2.FileName;
+//import org.apache.commons.vfs2.FileName;
 import org.concord.viewer.convert.ConvertHTML;
 import org.concord.viewer.convert.ConvertNone;
 import org.concord.viewer.convert.ConvertPDF;
 import org.concord.viewer.typecheck.TypeCheck;
 
-@Path("/upload")
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+@Path("/send")
 public class Getfile {
 	
 	
@@ -31,20 +35,19 @@ public class Getfile {
 		//error handling code
 	}*/
 	//file store on server
-	
-	private final String FOLDER_PATH = "/home/rucha/workspace/proj/viewer/uploads/";
-	
-	
+	//public String resultFilePath =null;
+	private final String FOLDER_PATH = "/home/rucha/git/viewer/uploads/";
+	@Path("/uploading")
 	@POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.TEXT_PLAIN)
 	
-    public String uploadFile(@FormDataParam("file") InputStream Inputfile, @FormDataParam("file") FormDataContentDisposition fileDisposition) throws IOException, InterruptedException 
+    public String uploadFile(@FormDataParam("upl") InputStream Inputfile, @FormDataParam("upl") FormDataContentDisposition fileDisposition) throws IOException, InterruptedException 
 	{
 		
         OutputStream outpuStream = null;
         String fileName = fileDisposition.getFileName();
-        System.out.println("File Name: " + fileName);
+       System.out.println("File Name: " + fileName);
         String filePath = FOLDER_PATH + fileName;
          
             int read = 0;
@@ -62,10 +65,16 @@ public class Getfile {
                System.out.println("File Uploaded");
             }
             String convertedFilePath=call(new File(filePath),fileName);
+            System.out.println("converted file path "+convertedFilePath);
+          
         return convertedFilePath;
     }
-	
-	
+/*	@Path("/view")
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public String sendPath(){
+System.out.println(resultFilePath);
+		return resultFilePath;}*/
 	
 	public String call(File inputFile,String fileName) throws IOException, InterruptedException
 	{

@@ -14,7 +14,7 @@ public class ConvertPDF implements ConvertFile {
 			 
 			 TempFileName=fileName.substring(0,fileName.lastIndexOf("."));
 			 TempFileName=TempFileName+".pdf";
-					 
+			 System.out.println("converted");
 					 return outputPath+TempFileName;
 	}
 	public void display (String outputPath)
