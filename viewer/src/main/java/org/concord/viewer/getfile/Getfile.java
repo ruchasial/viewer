@@ -5,27 +5,30 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import org.concord.viewer.JsonResponse;
+//import org.concord.viewer.JsonResponse;
 
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
+//import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
+//import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 //import org.apache.commons.vfs2.FileName;
-import org.concord.viewer.convert.ConvertHTML;
+//import org.concord.viewer.convert.ConvertHTML;
 import org.concord.viewer.convert.ConvertNone;
 import org.concord.viewer.convert.ConvertPDF;
 import org.concord.viewer.convert.ForCsv;
 import org.concord.viewer.convert.ForXls;
 import org.concord.viewer.convert.ForXlsx;
 import org.concord.viewer.typecheck.TypeCheck;
+//import org.eclipse.core.resources.IProject;
+//import org.eclipse.core.resources.IResource;
+
 /*
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -73,6 +76,8 @@ public class Getfile {
             String convertedFilePath=call(new File(filePath),fileName);
             System.out.println("converted file path "+convertedFilePath);
             //JsonResponse jsonresponse = new JsonResponse(type,convertedFilePath);
+           /* IProject project = root.getProject("viewer");
+            project.refreshLocal(IResource.DEPTH_INFINITE, null);*/
           
         return convertedFilePath;
     }
@@ -135,13 +140,21 @@ System.out.println(resultFilePath);
    	    case "text/css":  //css
    	    case "application/xml": //xml
    	    //images
+   	     ConvertNone f =new ConvertNone();
+		 String op2=f.convert(inputPath,fileName);
+	    	outputPath= "/FrontViewer/iviewer.html?file=../"+op2;
+   	    	
+	    	break;
+   	    	
    	    case "image/x-ms-bmp": //bmp
    	    case "image/jpeg":  //jpg
+   	    case "image/jpg":
    	    case "image/png": //png
    	    case "image/gif": //gif
+   	    
 		 ConvertNone n =new ConvertNone();
-		 String op2=n.convert(inputPath,fileName);
-	    	outputPath= "/FrontViewer/iviewer.html?file=../"+op2;
+		 String op6=n.convert(inputPath,fileName);
+	    	outputPath= "/FrontViewer/iviewer.html?file=../"+op6+"#1";
 		
 		break;
    	    default: 

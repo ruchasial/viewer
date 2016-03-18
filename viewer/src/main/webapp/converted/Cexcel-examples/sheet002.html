@@ -1,0 +1,425 @@
+
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../Cexcel-examples.html">
+<!-- <link rel=File-List href=filelist.xml> -->
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:.75in .22in .75in .2in;
+	mso-header-margin:.51in;
+	mso-footer-margin:.51in;
+	mso-page-orientation:landscape;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../Cexcel-examples.html");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body>
+
+<table align="left" cellspacing="0" border="0">
+	<colgroup width="67"></colgroup>
+	<colgroup width="191"></colgroup>
+	<colgroup span="7" width="67"></colgroup>
+	<tr>
+		<td height="21" align="left"><b><font size=3>Name</font></b></td>
+		<td align="left"><b><font size=3>Address</font></b></td>
+		<td align="left"><b><font size=3>Age</font></b></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Steve</font></td>
+		<td align="left"><font size=3>72 Andover Dr.</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td colspan=4 rowspan=2 align="left"><br><img src="excel-examples_html_289665a.png" width=153 height=24 hspace=59 vspace=9>
+		</td>
+		</tr>
+	<tr>
+		<td height="21" align="left"><font size=3>Yuri</font></td>
+		<td align="left"><font size=3>1133 Nicholas Av.</font></td>
+		<td align="right" sdval="14" sdnum="16393;">14</td>
+		<td align="left"><br></td>
+		<td align="left"><b><font size=3>Count</font></b></td>
+		</tr>
+	<tr>
+		<td height="21" align="left"><font size=3>David</font></td>
+		<td align="left"><font size=3>110 Arlington Street</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><b><font size=3>Counta</font></b></td>
+		<td align="right" sdval="33" sdnum="16393;"><font size=3>33</font></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="21" align="left"><font size=3>Andy</font></td>
+		<td align="left"><font size=3>38 Devonshire Road</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><b><font size=3>Countif</font></b></td>
+		<td align="right" sdval="5" sdnum="16393;"><font size=3>5</font></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Dan</font></td>
+		<td align="left"><font size=3>38 Devonshire Road</font></td>
+		<td align="right" sdval="14" sdnum="16393;">14</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Blaine</font></td>
+		<td align="left"><font size=3>59 Village Road</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Justin</font></td>
+		<td align="left"><font size=3>59 Village Road</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Rob</font></td>
+		<td align="left"><font size=3>39 Jackson Drive</font></td>
+		<td align="right" sdval="15" sdnum="16393;">15</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Russell</font></td>
+		<td align="left"><font size=3>39 Jackson Dr</font></td>
+		<td align="right" sdval="14" sdnum="16393;">14</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Justin</font></td>
+		<td align="left"><font size=3>16 Crestwood Rd.</font></td>
+		<td align="right" sdval="17" sdnum="16393;">17</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Tristan</font></td>
+		<td align="left"><font size=3>75 Peak Avenue</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Marty</font></td>
+		<td align="left"><font size=3>101 Captains Walk</font></td>
+		<td align="right" sdval="16" sdnum="16393;">16</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Jason</font></td>
+		<td align="left"><font size=3>73 Minuteman Dr.</font></td>
+		<td align="right" sdval="13" sdnum="16393;">13</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Joe</font></td>
+		<td align="left"><font size=3>73 Minuteman Dr.</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Philip</font></td>
+		<td align="left"><font size=3>61 Prospect Avenue</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Evan</font></td>
+		<td align="left"><font size=3>281 Burnt Plains Road</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Scott </font></td>
+		<td align="left"><font size=3>281 Burnt Plains Road</font></td>
+		<td align="right" sdval="14" sdnum="16393;">14</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Ivan</font></td>
+		<td align="left"><font size=3>11 Riverview Terrace</font></td>
+		<td align="right" sdval="12" sdnum="16393;">12</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>John</font></td>
+		<td align="left"><font size=3>41 Fairwood Ave</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Kevin</font></td>
+		<td align="left"><font size=3>381 Ocean Avenue</font></td>
+		<td align="right" sdval="12" sdnum="16393;">12</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Robert</font></td>
+		<td align="left"><font size=3>57 Wilson Street</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Brian</font></td>
+		<td align="left"><font size=3>20 Judith Drive</font></td>
+		<td align="right" sdval="15" sdnum="16393;">15</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Zack</font></td>
+		<td align="left"><font size=3>275 Rock La</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Jon</font></td>
+		<td align="left"><font size=3>275 Rock Lane</font></td>
+		<td align="right" sdval="13" sdnum="16393;">13</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Adam</font></td>
+		<td align="left"><font size=3>50 Live Oaks Rd</font></td>
+		<td align="right" sdval="12" sdnum="16393;">12</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Sean</font></td>
+		<td align="left"><font size=3>14 Lafayette Street</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Matt</font></td>
+		<td align="left"><font size=3>110 Kings Highway</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Neil</font></td>
+		<td align="left"><font size=3>125 Seemans Lane #11</font></td>
+		<td align="right" sdval="11" sdnum="16393;">11</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Lord</font></td>
+		<td align="left"><font size=3>4 Villa Rosa Terr</font></td>
+		<td align="right" sdval="16" sdnum="16393;">16</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Kevin</font></td>
+		<td align="left"><font size=3>23 Ellis St</font></td>
+		<td align="right" sdval="17" sdnum="16393;">17</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>David</font></td>
+		<td align="left"><font size=3>660 Merwin Av</font></td>
+		<td align="right" sdval="12" sdnum="16393;">12</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Greg</font></td>
+		<td align="left"><font size=3>34 Elgin Road</font></td>
+		<td align="right" sdval="13" sdnum="16393;">13</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+	<tr>
+		<td height="20" align="left"><font size=3>Cliff</font></td>
+		<td align="left"><font size=3>34 Elgin Road</font></td>
+		<td align="right" sdval="12" sdnum="16393;">12</td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+		<td align="left"><br></td>
+	</tr>
+</table>
+
+
+</body>
+
+</html>
