@@ -70,7 +70,9 @@ $(function(){
             	//$('#buttonid'+(parseInt(cnt)-1)).prop();
             	$('#buttonid'+(parseInt(cnt)-1)).show();
             	// $('#buttonid'+(parseInt(cnt)-1)).prop("disabled",false);
-            	$('#buttonid'+(parseInt(cnt)-1)).attr('onclick','window.open("http://localhost:8080/viewer' + res[(parseInt(cnt)-1)]+'");');
+            	var pathname = window.location.pathname; 
+            	var url      = window.location.href;
+            	$('#buttonid'+(parseInt(cnt)-1)).attr('onclick','window.open("'+url+ res[(parseInt(cnt)-1)]+'");');
             	//alert("data is : "+(parseInt(cnt)-1) +"   "+ result);
             	
             	

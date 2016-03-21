@@ -22,6 +22,7 @@ import org.glassfish.jersey.media.multipart.FormDataParam;
 //import org.concord.viewer.convert.ConvertHTML;
 import org.concord.viewer.convert.ConvertNone;
 import org.concord.viewer.convert.ConvertPDF;
+import org.concord.viewer.convert.ConvertPSD;
 import org.concord.viewer.convert.ForCsv;
 import org.concord.viewer.convert.ForXls;
 import org.concord.viewer.convert.ForXlsx;
@@ -103,26 +104,27 @@ System.out.println(resultFilePath);
    	    case "application/vnd.oasis.opendocument.text": //odt
    	    case "application/vnd.ms-powerpoint":   //ppt
    	    case "application/vnd.openxmlformats-officedocument.presentationml.presentation":  //pptx
+   	
    	    	ConvertPDF c= new ConvertPDF();
    	    	String op1=c.convert(inputPath,fileName); 
-   	    	outputPath="/FrontViewer/viewer.html?file=.."+op1;
+   	    	outputPath="FrontViewer/viewer.html?file=.."+op1;
    	    	break;
    	    	
    	    //xls, xlsx, csv,ods
    	    case "text/csv": //csv
    	    	ForCsv cv = new ForCsv();
    	    	String op4=cv.convert(inputPath, fileName);
-   	    	outputPath = "/FrontViewer/iviewer.html?file=.."+op4 ;
+   	    	outputPath = "FrontViewer/iviewer.html?file=.."+op4 ;
    	    	break;
    	    case "application/vnd.ms-excel": //xls
    	    	ForXls xls = new ForXls();
    	    	String op3=xls.convert(inputPath, "/home/rucha/git/viewer/src/main/webapp/converted/");
-   	    	outputPath = "/FrontViewer/iviewer.html?file=.."+op3;
+   	    	outputPath = "FrontViewer/iviewer.html?file=.."+op3;
    	    	break;
    	    case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": //xlsx
    	    	ForXlsx xlsx = new ForXlsx();
    	    	String op5=xlsx.convert(inputPath,"/home/rucha/git/viewer/src/main/webapp/converted/");
-   	    	outputPath="/FrontViewer/iviewer.html?file=.."+op5;
+   	    	outputPath="FrontViewer/iviewer.html?file=.."+op5;
    	    	break;
    	    case "application/vnd.oasis.opendocument.spreadsheet": //ods
    	    	//ConvertHTML h = new ConvertHTML();
@@ -139,13 +141,19 @@ System.out.println(resultFilePath);
    	    case "text/plain":  //txt
    	    case "text/css":  //css
    	    case "application/xml": //xml
+   	    case "text/x-c":
+   	    case "text/x-java-source"://java
+   	    case "text/javascript":
+   	  case "text/ecmascript":	
+   	  case	"text/x-script.phyton":
+   	    	
    	    //images
    	     ConvertNone f =new ConvertNone();
 		 String op2=f.convert(inputPath,fileName);
-	    	outputPath= "/FrontViewer/iviewer.html?file=../"+op2;
+	    	outputPath= "FrontViewer/iviewer.html?file=../"+op2;
    	    	
 	    	break;
-   	    	
+   	 
    	    case "image/x-ms-bmp": //bmp
    	    case "image/jpeg":  //jpg
    	    case "image/jpg":
@@ -154,10 +162,25 @@ System.out.println(resultFilePath);
    	    
 		 ConvertNone n =new ConvertNone();
 		 String op6=n.convert(inputPath,fileName);
-	    	outputPath= "/FrontViewer/iviewer.html?file=../"+op6+"#1";
+	    	outputPath= "FrontViewer/iviewer.html?file=../"+op6+"#1";
 		
 		break;
+		//PDF
+    	   case "application/pdf":
+     	    case "application/x-pdf":
+     	    	ConvertNone n1 =new ConvertNone();
+     			 String op7=n1.convert(inputPath,fileName);
+     			outputPath="FrontViewer/viewer.html?file=../"+op7;
+       	    	break;
+     	    	
+   	    case "application/octet-stream":
+   	    case "image/vnd.adobe.photoshop":
+   	    	ConvertPSD psd= new ConvertPSD();
+   	    	String op8=psd.convert(inputPath, fileName);
+   	    	outputPath="FrontViewer/iviewer.html?file=../"+op8+"#1";
+   	    break;
    	    default: 
+   	    	outputPath="/ErrorMessage.html";
    	    	//error();
 		}
 		return outputPath;
