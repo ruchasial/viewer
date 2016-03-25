@@ -18,6 +18,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
+import org.omg.PortableInterceptor.USER_EXCEPTION;
 //import org.apache.commons.vfs2.FileName;
 //import org.concord.viewer.convert.ConvertHTML;
 import org.concord.viewer.convert.ConvertNone;
@@ -27,23 +28,13 @@ import org.concord.viewer.convert.ForCsv;
 import org.concord.viewer.convert.ForXls;
 import org.concord.viewer.convert.ForXlsx;
 import org.concord.viewer.typecheck.TypeCheck;
-//import org.eclipse.core.resources.IProject;
-//import org.eclipse.core.resources.IResource;
 
-/*
-import javax.servlet.Servlet;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;*/
 @Path("/send")
 public class Getfile {
 	
 	String type;
-	/*public static void e("current dir = " + dir);rror()
-	{
-		//error handling code
-	}*/
-	//file store on server
-	//public String resultFilePath =null;
+String g=System.getProperty("java.class.path");
+	
 	private final String FOLDER_PATH = "/home/rucha/git/viewer/src/main/webapp/uploads/";
 	@Path("/uploading")
 	@POST
@@ -52,9 +43,8 @@ public class Getfile {
 	
     public String uploadFile(@FormDataParam("upl") InputStream Inputfile, @FormDataParam("upl") FormDataContentDisposition fileDisposition) throws IOException, InterruptedException 
 	{
-		
-		/*final String dir = System.getProperty("user.dir");
-	    System.out.println("current directory"+dir);*/
+		System.out.println("current dir"+g);
+	
         OutputStream outpuStream = null;
         String fileName = fileDisposition.getFileName();
        System.out.println("File Name: " + fileName);
@@ -70,24 +60,17 @@ public class Getfile {
             outpuStream.close();
             
             
-        //} finally {
+ 
             if(outpuStream != null){
                System.out.println("File Uploaded");
             }
             String convertedFilePath=call(new File(filePath),fileName);
             System.out.println("converted file path "+convertedFilePath);
-            //JsonResponse jsonresponse = new JsonResponse(type,convertedFilePath);
-           /* IProject project = root.getProject("viewer");
-            project.refreshLocal(IResource.DEPTH_INFINITE, null);*/
+ 
           
         return convertedFilePath;
     }
-/*	@Path("/view")
-	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	public String sendPath(){
-System.out.println(resultFilePath);
-		return resultFilePath;}*/
+
 	
 	public String call(File inputFile,String fileName) throws IOException, InterruptedException
 	{
@@ -127,11 +110,7 @@ System.out.println(resultFilePath);
    	    	outputPath="FrontViewer/iviewer.html?file=.."+op5;
    	    	break;
    	    case "application/vnd.oasis.opendocument.spreadsheet": //ods
-   	    	//ConvertHTML h = new ConvertHTML();
-   	    	
-   	    	//String op1=h.convert(inputPath,fileName);
-   	    	//outputPath= op1 + "1";
-   	    	//outputPath=h.convert(inputPath, fileName);
+   	
    	    	
    	    break;
    	    //website
